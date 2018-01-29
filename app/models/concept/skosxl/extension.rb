@@ -6,6 +6,15 @@ module Concept
       included do
         validate :valid_label_language
 
+        # DAINST-CHANGE
+        # disables validatations of base iqvoc-model (by overriding with empty methods)
+        # to enable reuse of labels as preferred labels for multiple concepts
+        def unique_pref_labels
+        end
+        def unique_alt_labels
+        end
+        # END DAINST-CHANGE
+
         before_validation do |concept|
           # Labelings
           (@labelings_by_id ||= {}).each do |labeling_relation_name, origin_mappings|
