@@ -32,7 +32,14 @@
         </ul>
       </div>
       <% end %>
-      
+
+      <% if @concept.matches.any? %>
+        <div id="matches">
+          <% data = {}; render_match_association(data, @concept, Iqvoc::Concept.match_classes) %>
+         	<%= raw data["relations"][300] if data["relations"] and data["relations"][300] %>
+        </div>
+      <% end -%>
+
 	    <% if @view.notes.any? %>
       	<% @view.notes.each do |n| %>
       		<% unless n.class == Note::SKOS::ChangeNote %>
