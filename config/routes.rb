@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     get 'label_dashboard' => 'xl_dashboard#label_index', as: 'label_dashboard'
     get 'concept_new_label' => 'labels#new_from_concept', as: 'concept_new_label'
     post 'concept_create_label' => 'labels#create_from_concept', as: 'concept_create_label'
+
+    get 'concepts/:origin/broader_path' => 'concepts#broader_path', as: 'concept_broader_path'
   end
 end
