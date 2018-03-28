@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 				var loc = window.location
 				var current_language = loc.pathname.split("/")[1]
 				var origin = item.value.split("/")[3]
-				$.getJSON(loc.origin + "/" + current_language + "/concepts/" + origin + "/broader_path", responder);
+				$.getJSON(loc.origin + "/" + current_language + "/concepts/" + origin + "/broader_path.json", responder);
 			}
 		});
 	});
