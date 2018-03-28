@@ -13,6 +13,9 @@ module Concept
         end
         def unique_alt_labels
         end
+        # - Removes concept validation for missing label of first preferred language, since other languages can be sufficient
+        def pref_label_in_primary_thesaurus_language
+        end
         # END DAINST-CHANGE
 
         before_validation do |concept|
