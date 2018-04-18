@@ -79,10 +79,16 @@
   <!-- Color -->
   <fieldset>
     <legend>(DAI) Redaktionelle Markierung</legend>
-    
-    <%= f.select :color, [["none", ""], ["Green (Polyhierarchische Einordnung)", "green"], ["Red (?? Unsichere Einordnung)", "red"], ["Redundante Begriffe", "pink"], ["Black (Dariah)", "black"]], { label: "Editorial Color" }, { class: "selectpicker" }  %>
+    <%= f.select :color, [["none", ""], ["Green (Polyhierarchische Einordnung)", "green"], ["Red (?? Unsichere Einordnung)", "red"], ["Pink (Redundante Begriffe)", "pink"], ["Black (Dariah)", "black"]], { label: "Editorial Color" }, { class: "selectpicker" }  %>
   </fieldset>
 <!-- /Color -->
+
+ <!-- Editorial Flag -->
+  <fieldset>
+    <legend >(DAI) Editorial Flag</legend>
+    <%= f.text_field :editorial_flag %>
+  </fieldset>
+<!-- /Editorial Flag -->
 
   <!-- Notes ohne Change Note class -->
   <% Iqvoc::Concept.note_classes.reject { |n| n == Iqvoc.change_note_class  }.each do |note_class| %>

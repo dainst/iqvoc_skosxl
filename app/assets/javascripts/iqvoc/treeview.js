@@ -30,6 +30,8 @@ function Treeview(container) {
         url: item.children('a').attr('href'),
         update_url: item.data('update-url'),
         glance_url: item.data('glance-url'),
+        color: item.data('color'),
+		editorial_flag: item.data('editorial-flag'),
         published: item.data('published'),
         additionalText: item.children('span.additional_info').html()
       };
@@ -69,6 +71,11 @@ function Treeview(container) {
         if (link[0]) {
           var teaserLink = buildTeaserLink(node, link[0]);
           $li.find('.jqtree-element').append(teaserLink);
+        }
+
+        if(node.editorial_flag) {
+          var editorialFlag = buildEditorialFlag(node.editorial_flag);
+          $li.find('.jqtree-element').append(editorialFlag);
         }
 
         if (dragabbleSupport) {
@@ -263,6 +270,15 @@ function Treeview(container) {
     });
 
     return teaserLink;
+  }
+
+  function buildEditorialFlag(editorial_flag) {
+    var editorialFlag = $('<span/>')
+
+    editorialFlag.addClass('text-muted small')
+        .html(" (" + editorial_flag + ")");
+
+    return editorialFlag;
   }
 
 }

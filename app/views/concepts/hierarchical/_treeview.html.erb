@@ -23,6 +23,7 @@
       data-published="<%= concept.published? %>"
       data-locked="<%= locked %>"
       data-color="<%= concept.color %>"
+      data-editorial-flag="<%= concept.editorial_flag %>"
       data-glance-url="<%= glance_concept_url(concept) %>">
       <% if concept.published? %>
         <%= link_to(concept.pref_label.to_s, concept_url(id: concept)) %>
