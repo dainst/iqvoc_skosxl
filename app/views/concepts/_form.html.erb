@@ -75,6 +75,15 @@
   </fieldset>
   <!-- /Collection -->
 
+
+  <!-- Color -->
+  <fieldset>
+    <legend>(DAI) Redaktionelle Markierung</legend>
+    
+    <%= f.select :color, [["none", ""], ["Green (Polyhierarchische Einordnung)", "green"], ["Red (?? Unsichere Einordnung)", "red"], ["Redundante Begriffe", "pink"], ["Black (Dariah)", "black"]], { label: "Editorial Color" }, { class: "selectpicker" }  %>
+  </fieldset>
+<!-- /Color -->
+
   <!-- Notes ohne Change Note class -->
   <% Iqvoc::Concept.note_classes.reject { |n| n == Iqvoc.change_note_class  }.each do |note_class| %>
     <% unless note_class.edit_partial_name(concept).nil? %>
