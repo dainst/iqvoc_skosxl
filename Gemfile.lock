@@ -188,6 +188,9 @@ GEM
     net-http-persistent (2.9.4)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    passenger (5.2.3)
+      rack
+      rake (>= 0.8.1)
     pg (0.21.0)
     poltergeist (1.5.1)
       capybara (~> 2.1)
@@ -348,6 +351,7 @@ DEPENDENCIES
   capybara
   iqvoc (~> 4.12)!
   mysql2
+  passenger
   pg
   poltergeist (~> 1.5.0)
   pry-rails
