@@ -38,6 +38,26 @@
           <% data = {}; render_match_association(data, @concept, Iqvoc::Concept.match_classes) %>
          	<%= raw data["relations"][300] if data["relations"] and data["relations"][300] %>
         </div>
+        <script type="text/javascript">
+          jQuery(document).ready(function($) {
+            $(".modal .match a").each(function(i, e){
+                var match_target_url = new URL(e.href)
+
+                if (match_target_url.origin == window.location.origin) {
+                  var loc = window.location
+                  var current_language = loc.pathname.split("/")[1]
+                  var broader_path_el = document.createElement("blockquote")
+
+                  e.innerHTML = ""
+                  e.appendChild(broader_path_el)
+                  $.getJSON("/" + current_language + "/concepts" + match_target_url.pathname + "/broader_path.json", function(data, status, xhr) {
+                    broader_path_el.innerText = data["broader_relations_string"]
+                  });
+                }
+            });
+          });
+          
+        </script>
       <% end -%>
 
 	    <% if @view.notes.any? %>
