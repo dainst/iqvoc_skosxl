@@ -24,5 +24,15 @@ jQuery(document).ready(function($) {
 
   var relation_skos_relateds_input = $('#concept_relation_skos_relateds').parent().find('input.tt-input')[0];
   if (relation_skos_relateds_input) { $(relation_skos_relateds_input).bind("typeahead:cursorchanged", broader_path_info_for_suggestions); }
+
+  	$('.match .concept-mapping-link').each(function(i, e){
+	    var match_target_url = new URL(e.href)
+	    if (match_target_url.origin == window.location.origin) {
+	      var current_language = window.location.pathname.split("/")[1]
+	      $.getJSON("/" + current_language + "/concepts" + match_target_url.pathname + "/broader_path.json", function(data, status, xhr) {
+	        e.innerText = data["broader_relations_string"]
+	      });
+	    }
+	});
 });
 
