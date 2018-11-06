@@ -3,6 +3,10 @@ en:
     controllers:
       label:
         duplicate_error: There must not be any unpublished version for duplication.
+      concept:
+        unpublish_loose_concept:
+          success: "Unpublished concept"
+          error: "Error - Could not unpublish concept"
     views:
       versioning:
         duplicate: Duplicate
@@ -21,5 +25,8 @@ en:
         referenced_concepts_invalid: Some referenced concepts become invalid. Please remove label from referenced concepts first.
       concept:
         no_pref_label_error: "At least one published preferred label must be specified."
+        loose_concept: "Parentless concept"
+        unpublish_loose_concept: "Unpublish parentless concept"
+        confirm_unpublish_loose_concept: "Unpublish parentless concept?"
     common:
       referenced_labels: "Some referenced labels are currently being edited."

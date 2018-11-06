@@ -3,6 +3,10 @@ de:
     controllers:
       label:
         duplicate_error: Zum Duplizieren darf es keine unveröffentlichte Revision geben.
+      concept:
+        unpublish_loose_concept:
+          success: "Veröffentlichung wurde widerrufen"
+          error: "Fehler - Veröffentlichung des Konzeptes konnte nicht widerrufen werden."
     views:
       versioning:
         duplicate: Duplizieren
@@ -21,5 +25,8 @@ de:
         referenced_concepts_invalid: Referenzierte Konzepte werden durch diese Änderung invalide. Bitte Labelzuordnung am Konzept aufheben.
       concept:
         no_pref_label_error: "Es muss mindestens ein veröffentlichtes, bevorzugtes Label angegeben werden."
+        loose_concept: "Elternloses Konzept"
+        unpublish_loose_concept: "Veröffentlichung von elternlosem Konzept widerrufen"
+        confirm_unpublish_loose_concept: "Veröffentlichung des elternlosen Konzeptes widerrufen?"
     common:
       referenced_labels: "Einige referenzierte Labels befinden sich momentan in Bearbeitung."

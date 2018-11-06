@@ -16,6 +16,10 @@ module Concept
         # - Removes concept validation for missing label of first preferred language, since other languages can be sufficient
         def pref_label_in_primary_thesaurus_language
         end
+
+        def parentless
+          relations.none? and !top_term 
+        end
         # END DAINST-CHANGE
 
         before_validation do |concept|

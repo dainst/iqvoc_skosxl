@@ -31,5 +31,21 @@ Rails.application.config.after_initialize do
 			end
 			render json: {"broader_relations_string": broader_relations_string}
 		end
+
+		def unpublish
+			return unless current_user and current_user.owns_role?(:administrator)
+			get_concept							
+			if @concept.parentless
+				@concept.published_at = nil
+				@published = 1
+				if @concept.save
+					flash[:success] = I18n.t('txt.controllers.concept.unpublish_loose_concept.success')
+					@published = 0
+				else
+					flash[:error] = I18n.t('txt.controllers.concept.unpublish_loose_concept.error')
+				end
+				redirect_to concept_path(published: @published, id: @concept.origin)
+			end      		
+		end
 	end
 end
