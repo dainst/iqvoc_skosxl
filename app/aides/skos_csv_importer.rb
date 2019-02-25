@@ -45,7 +45,6 @@ class SkosCsvImporter
 			end
 			@current_concept.published_at = Time.now
 			@current_concept.save()
-
 		end
 	end
 
