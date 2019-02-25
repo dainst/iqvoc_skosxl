@@ -41,10 +41,14 @@ class VocabImporter
 		#getty
 			concept.xpath("skos:exactMatch/skos:Concept[contains(@rdf:about,'getty')]").each do |getty_match|
 				getty_link = getty_match.values.first
-				remotefile = open(getty_link + ".rdf")
-				remote_rdf  = Nokogiri::XML(File.open(remotefile.path)) 
-				if english_pref_label =  remote_rdf.xpath("//skos:prefLabel[@xml:lang=\"en\"]").first
-					current_concept.note_skos_examples << Note::SKOS::Example.create(language: "en", value: getty_link + " (" + english_pref_label.text + ")" , owner_type: "Concept::Base")
+				begin
+					remotefile = open(getty_link + ".rdf")
+					remote_rdf  = Nokogiri::XML(File.open(remotefile.path)) 
+					if english_pref_label =  remote_rdf.xpath("//skos:prefLabel[@xml:lang=\"en\"]").first
+						current_concept.note_skos_examples << Note::SKOS::Example.create(language: "en", value: getty_link + " (" + english_pref_label.text + ")" , owner_type: "Concept::Base")
+					end
+				rescue
+					puts "Error - could not load getty resource"
 				end
 			end
 
