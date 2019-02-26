@@ -48,7 +48,7 @@ class VocabImporter
 						current_concept.note_skos_examples << Note::SKOS::Example.create(language: "en", value: getty_link + " (" + english_pref_label.text + ")" , owner_type: "Concept::Base")
 					end
 				rescue
-					puts "Error - could not load getty resource - URL: getty_link + ".rdf""
+					puts "Error - could not load getty resource - URL: #{getty_link}.rdf"
 				end
 			end
 
