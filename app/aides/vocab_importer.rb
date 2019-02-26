@@ -48,7 +48,7 @@ class VocabImporter
 						current_concept.note_skos_examples << Note::SKOS::Example.create(language: "en", value: getty_link + " (" + english_pref_label.text + ")" , owner_type: "Concept::Base")
 					end
 				rescue
-					puts "Error - could not load getty resource"
+					puts "Error - could not load getty resource - URL: getty_link + ".rdf""
 				end
 			end
 
@@ -63,10 +63,15 @@ class VocabImporter
 					if broader = rdf_concept.xpath("skos:broader").first
 						broader_url = broader.attributes["resource"].value
 
-						note = Note::SKOS::EditorialNote.where(value: broader_url).first
-						broader_concept = note.owner
-
-						concept.broader_relations.create_with_reverse_relation(broader_concept)
+						if note = Note::SKOS::EditorialNote.where(value: broader_url).first
+							if broader_concept = note.owner
+								concept.broader_relations.create_with_reverse_relation(broader_concept)
+							else
+								puts "Error - Connecting broader concept - EditorialNote found, but it has to owner "
+							end
+						else
+							puts "Error - Connecting broader concept - No EditorialNote with vocab-url of broader concept found"
+						end
 					end
 				end
 			end
