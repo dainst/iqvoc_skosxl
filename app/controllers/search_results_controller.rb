@@ -106,10 +106,6 @@ class SearchResultsController < ApplicationController
       end
       klass = klass.constantize
 
-      #if params[:broader_concept]
-      #  params[:for] = "concept"
-      #end
-
       query_size = params[:query].split(/\r\n/).size
 
       if klass.forces_multi_query? || (klass.supports_multi_query? && query_size > 1)
@@ -149,8 +145,8 @@ class SearchResultsController < ApplicationController
       end
 
 
-      unless params[:broader_concept].blank? 
-         @broader_concept = Iqvoc::Concept.base_class.find_by_origin(params[:broader_concept])
+      unless params[:broader_concept_filter].blank? 
+         @broader_concept_filter = Iqvoc::Concept.base_class.find_by_origin(params[:broader_concept_filter])
         filtered_results = []
         for result in @results
           broader_concept_included = false
@@ -163,7 +159,7 @@ class SearchResultsController < ApplicationController
               related_concepts = concept.related_concepts_for_relation_class(Iqvoc::Concept.broader_relation_class, true)
               if related_concepts.any?
                 parent = related_concepts.first
-                if parent.origin == @broader_concept.origin
+                if parent.origin == @broader_concept_filter.origin
                   broader_concept_included = true
                   filtered_results << result
                   next
@@ -171,7 +167,7 @@ class SearchResultsController < ApplicationController
                 while parent
                   parent = parent.related_concepts_for_relation_class(Iqvoc::Concept.broader_relation_class, true).first
                   next unless parent
-                  if parent.origin == @broader_concept.origin
+                  if parent.origin == @broader_concept_filter.origin
                     filtered_results << result
                     next
                   end

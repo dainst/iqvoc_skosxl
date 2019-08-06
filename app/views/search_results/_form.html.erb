@@ -6,13 +6,13 @@
   <div class="form-group">
 	  <%= label_tag 'qBroader', "Suche unterhalb", :class => 'col-sm-2 control-label' %>
 	  <div class="col-sm-4 col-md-6">
-	  		<% if @broader_concept %>
-	  			<h4><%= @broader_concept.pref_label %></h4>
-	  			<button type="button" class="btn btn-default btn-sm" onclick="document.getElementById('search_filter_broader_concept').value=''; submit()">Entfernen</button>
-	  			<input  id="broader_concept" type="hidden" name="broader_concept" value="<%= @broader_concept.origin %>">
+	  		<% if @broader_concept_filter %>
+	  			<h4><%= @broader_concept_filter.pref_label %></h4>
+	  			<button type="button" class="btn btn-default btn-sm" onclick="document.getElementById('broader_concept_filter').value=''; submit()">Entfernen</button>
+	  			<input  id="broader_concept_filter" type="hidden" name="broader_concept_filter" value="<%= @broader_concept_filter.origin %>">
 	  		<% else %>
-			  <%= text_field_tag "search_filter_broader_concept", (@broader_concept ? @broader_concept.origin : ""),
-			    :id => "search_filter_broader_concept",
+			  <%= text_field_tag "broader_concept_filter", (@broader_concept_filter ? @broader_concept_filter.origin : ""),
+			    :id => "broader_concept_filter",
 			    :class => "entity_select",
 			    :"data-query-url" => concepts_path(:format => :json),
 			    :"data-entity-uri" => concept_path("{id}"),
