@@ -309,4 +309,7 @@ class Label::SKOSXL::Base < Label::Base
       send(note_class_name.to_relation_name).build if send(note_class_name.to_relation_name).empty?
     end
   end
+
+  def build_search_result_rdf a, b
+  end
 end
