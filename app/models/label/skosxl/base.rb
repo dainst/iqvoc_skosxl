@@ -313,6 +313,6 @@ class Label::SKOSXL::Base < Label::Base
   def build_search_result_rdf(document, result)
     result.Sdc::link(IqRdf.build_uri(origin))
     pred = :xllabel
-    subject.send(self.rdf_namespace.camelcase).send(pred, value.to_s, lang: language)
+    result.send(self.rdf_namespace.camelcase).send(pred, value.to_s, lang: language)
   end
 end
