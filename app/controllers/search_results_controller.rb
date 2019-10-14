@@ -192,6 +192,16 @@ class SearchResultsController < ApplicationController
     end
   end
 
+  def koha_search
+    if params[:date] and params[:offset]
+      file_path = "public/export/koha_export.rdf"
+      k = KohaExporter.new(file_path, "http://thesauri.dainst.org", params[:date], params[:offset]); k.run()
+      send_file file_path, :type => "text/xml", :disposition => "inline"
+    else
+      render text: "", status: :not_acceptable
+    end
+  end
+
   def self.prepare_basic_variables(controller)
     langs = Iqvoc.all_languages.each_with_object({}) do |lang, hsh|
       lang ||= 'none'

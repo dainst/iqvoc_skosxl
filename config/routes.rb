@@ -23,5 +23,7 @@ Rails.application.routes.draw do
     get 'concepts/:origin/broader_path' => 'concepts#broader_path', as: 'concept_broader_path'
 
     post 'concepts/:id/unpublish' => 'concepts#unpublish', as: 'concept_unpublish'
+
+    get 'koha_search' => 'search_results#koha_search', as: 'koha_search'
   end
 end
