@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i> <%= t('txt.common.menu') %>
+      </button>
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <img src="kleinergreif.png" id="brand-img">
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <iframe src="https://idai.world/config/idai-nav.html" style="height: 100vh; width: 200px;" frameborder="0"></iframe>
+          </ul>
+        </li>
+      </ul>
+
+      <%= link_to Iqvoc.config["title"], localized_root_path, class: 'navbar-brand' %>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+    	
+      <ul class="nav navbar-nav">
+        <%= nav_items Iqvoc.navigation_items %>
+      </ul>
+
+      <%= render "layouts/controls" %>
+    </div>
+  </div>
+</nav>
