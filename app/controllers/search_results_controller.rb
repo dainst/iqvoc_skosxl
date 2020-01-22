@@ -202,6 +202,16 @@ class SearchResultsController < ApplicationController
     end
   end
 
+  def zenon_search
+    if params[:type] and params[:offset] and params[:query]
+      file_path = "public/export/zenon_export.rdf"
+      k = ZenonExporter.new(file_path, "http://thesauri.dainst.org", params[:query], params[:type], params[:offset]); k.run()
+      send_file file_path, :type => "text/xml", :disposition => "inline"
+    else
+      render text: "", status: :not_acceptable
+    end
+  end
+
   def self.prepare_basic_variables(controller)
     langs = Iqvoc.all_languages.each_with_object({}) do |lang, hsh|
       lang ||= 'none'

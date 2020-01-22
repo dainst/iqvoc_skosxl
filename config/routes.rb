@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     post 'concepts/:id/unpublish' => 'concepts#unpublish', as: 'concept_unpublish'
 
     get 'koha_search' => 'search_results#koha_search', as: 'koha_search'
+    get 'zenon_search' => 'search_results#zenon_search', as: 'zenon_search'
   end
 end
