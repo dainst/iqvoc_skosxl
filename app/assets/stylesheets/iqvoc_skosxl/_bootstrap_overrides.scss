@@ -1,0 +1,9 @@
+/**
+ * Place to override variables from the iqvoc bootstrap variables.
+ *
+ * see: https://github.com/innoq/iqvoc/blob/master/app/assets/stylesheets/iqvoc/settings/_bootstrap-variables.scss
+ */
+
+//** These are viewport widths at which the navbar (un-)collapses
+$grid-float-breakpoint: 632px;
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
