@@ -1,10 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="fa fa-bars"></i> <%= t('txt.common.menu') %>
-      </button>
+
 
       <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -19,6 +16,11 @@
       </ul>
 
       <%= link_to Iqvoc.config["title"], localized_root_path, class: 'navbar-brand' %>
+
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i> <%= t('txt.common.menu') %>
+      </button>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
