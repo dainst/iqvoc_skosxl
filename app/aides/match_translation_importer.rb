@@ -28,13 +28,24 @@ class MatchTranslationImporter
 
 					if broader_relations_contain_old_tree(match_target)
 						puts "match-target is part of old tree!"
-						# 
+						
 						languages_copied = []
 						for label in match_target.pref_labels.where.not(language: 'de')
-							unless languages_copied.include? label.language
-								concept.pref_labels.create(language: label.language, value: label.value, published_at: Time.now)
-								# puts Label::SKOSXL::Base.new(language: label.language, value: label.value, published_at: Time.now)
-								languages_copied << label.language
+							
+							# use label as prefered label
+							found_same_language_prefered_label = concept.pref_labels.where("language = '#{label.language}'")
+							unless found_same_language_prefered_label.any?
+									l = Label::SKOSXL::Base.new(language: label.language, value: label.value, published_at: Time.now)
+									l.save()
+									concept.pref_labels << l
+							else
+								# use label as alt label if not present already
+								found_same_label_overall = concept.labels.where("language = '#{label.language}' AND value = \"#{label.value}\"")
+								unless found_same_label_overall.any?
+									l = Label::SKOSXL::Base.new(language: label.language, value: label.value, published_at: Time.now)
+									l.save()
+									concept.alt_labels << l
+								end
 							end
 						end
 					end
