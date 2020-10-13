@@ -9,6 +9,8 @@ Iqvoc.searchable_class_names = {
   'Labeling::SKOSXL::AltLabel' => 'alt_labels'
 }
 
+Iqvoc::Concept.broader_relation_class_name  = 'Concept::Relation::SKOS::Broader::Poly'
+
 module SkosXlExporterExtensions
   extend ActiveSupport::Concern
   include LabelsHelper
