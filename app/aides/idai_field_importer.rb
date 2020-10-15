@@ -187,7 +187,7 @@ class IdaiFieldImporter
 
       is_concept = types[object].to_s == "Concept::SKOS::Base"
 
-      editorial_note = Note::SKOS::EditorialNote.find_by(value: "former origin: #{origin}")
+      editorial_note = Note::SKOS::EditorialNote.find_by(value: "iDAI.field origin: #{origin}")
       if is_concept && editorial_note
         concept = Concept::SKOS::Base.find(editorial_note.owner_id)
         @iqvoc_origins[origin] = concept.origin
@@ -203,7 +203,7 @@ class IdaiFieldImporter
 
         notes = []
         if is_concept
-            notes << Note::SKOS::EditorialNote.create(value: "former origin: " + origin, owner_type: types[object], language: "de")
+            notes << Note::SKOS::EditorialNote.create(value: "iDAI.field origin: " + origin, owner_type: types[object], language: "de")
         end
 
         new_concept = types[object].create do |new_object|
