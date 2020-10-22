@@ -26,7 +26,9 @@ class ConceptRemover
  def remove_labels concept
    if concept.labels.any?
      concept.labels.each do |label|
-       label.destroy
+       if label.concepts.length == 1
+         label.destroy
+       end
      end
    end
  end
