@@ -1,0 +1,12 @@
+<% published_param = concept.published? ? nil : 0 %>
+<%= content_for :head do -%>
+  <link href="<%= rdf_url(concept.origin, :format => :ttl, :published => published_param, :lang => nil) %>" type="text/turtle" rel="alternate" title=""/>
+  <link href="<%= rdf_url(concept.origin, :format => :rdf, :published => published_param, :lang => nil) %>" type="application/rdf+xml" rel="alternate" title=""/>
+  <link href="<%= concept_path(concept, :format => :json, :published => published_param) %>" type="application/json" rel="alternate"/>
+<% end -%>
+
+<%= concept_header concept %>
+<div class="relation panel">
+  <h2>Pfad</h2>
+  <div class="relation body"><%= broader_path_menu concept %></div>
+</div>
