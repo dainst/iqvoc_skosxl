@@ -1,7 +1,7 @@
 class MatchTranslationImporter
-	def initialize()
-		@old_tree_origin = "_05805030"
-		@new_tree_origin = "_fe65f286"
+	def initialize(translation_target_tree_origin, tranlation_resource_tree_origin)
+		@old_tree_origin = tranlation_resource_tree_origin
+		@new_tree_origin = translation_target_tree_origin
 		@root_concept = Iqvoc::Concept.base_class.find_by_origin(@new_tree_origin)
 	end
 	
