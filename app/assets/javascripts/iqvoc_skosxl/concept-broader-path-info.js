@@ -38,8 +38,7 @@ jQuery(document).ready(function($) {
     }
 	});
 
-  var previews = document.querySelectorAll('.broader_concept_preview');
-  let observer = new IntersectionObserver(callback);
+  var observer = new IntersectionObserver(callback);
   function callback(entries) {
    var t = entries[0].target
    if (t) {
@@ -48,8 +47,8 @@ jQuery(document).ready(function($) {
      observer.unobserve(t)
    }
   }
-  previews.forEach( preview => {
-     observer.observe(preview); 
+  $('.broader_concept_preview').each( function(i, el) {
+     observer.observe(el); 
   });
 });
 
