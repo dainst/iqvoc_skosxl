@@ -7,14 +7,14 @@ jQuery(document).ready(function($) {
   	var target_label = item.label;
 
 		var responder = function(data, status, xhr) {
-			var targetSuggestion = $('.tt-cursor:contains('+target_label+')');
+			const targetSuggestion = $('.tt-cursor:contains('+target_label+')');
 			targetSuggestion.append("<small>" + data["broader_relations_string"] + "</small>")
 			targetSuggestion.addClass('broader_path_added')
 		}
 		if(!$('.tt-cursor:first').hasClass('broader_path_added')) {
-			var loc = window.location
-			var current_language = loc.pathname.split("/")[1]
-			var origin = item.value
+			const loc = window.location
+			const current_language = loc.pathname.split("/")[1]
+			const origin = item.value
 			$.getJSON(loc.origin + "/" + current_language + "/concepts/" + origin + "/broader_path.json", responder);
 		}
   }
@@ -37,5 +37,19 @@ jQuery(document).ready(function($) {
       });
     }
 	});
+
+  const previews = document.querySelectorAll('.broader_concept_preview');
+  let observer = new IntersectionObserver(callback);
+  function callback(entries) {
+   const t = entries[0].target
+   if (t) {
+     const current_language = window.location.pathname.split("/")[1]
+     $(t).load("/" + current_language + "/labels/" + t.dataset.labelOrigin + "/broader_concepts")
+     observer.unobserve(t)
+   }
+  }
+  previews.forEach( preview => {
+     observer.observe(preview); 
+  });
 });
 

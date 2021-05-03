@@ -31,6 +31,10 @@ class LabelsController < ApplicationController
     end
   end
 
+  def broader_concepts
+    @label = Iqvoc::XLLabel.base_class.by_origin(params[:origin]).published.last!
+  end
+
   def show
     scope = Iqvoc::XLLabel.base_class.by_origin(params[:id]).with_associations
 

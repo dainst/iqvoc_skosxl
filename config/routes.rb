@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     post 'concept_create_label' => 'labels#create_from_concept', as: 'concept_create_label'
 
     get 'concepts/:origin/broader_path' => 'concepts#broader_path', as: 'concept_broader_path'
-
+    get 'labels/:origin/broader_concepts' => 'labels#broader_concepts', as: 'label_broader_concepts'
+ 
     post 'concepts/:id/unpublish' => 'concepts#unpublish', as: 'concept_unpublish'
 
     get 'koha_search' => 'search_results#koha_search', as: 'koha_search'

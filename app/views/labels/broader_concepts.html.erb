@@ -1,0 +1,7 @@
+<% for labeling in @label.labelings %>
+  <ul class="small ">
+  <% if concept = labeling.owner %>
+    <li><%= broader_path_menu concept %></li>
+  <% end %>
+  </ul>
+<% end %>
