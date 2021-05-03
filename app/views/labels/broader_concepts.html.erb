@@ -1,7 +1,12 @@
-<% for labeling in @label.labelings %>
-  <ul class="small ">
-  <% if concept = labeling.owner %>
-    <li><%= broader_path_menu concept %></li>
-  <% end %>
-  </ul>
+<ul class="small ">
+<% if @label.labelings.any? %>
+  <% for labeling in @label.labelings %>
+    
+    <% if concept = labeling.owner %>
+      <li><%= broader_path_menu concept %></li>
+    <% end
+  end %>
+<% else %>
+  <li>No labelings found</li>
 <% end %>
+</ul>

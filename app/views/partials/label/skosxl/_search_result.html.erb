@@ -9,7 +9,7 @@
     <dd class="search-result-value" data-key="<%= t('txt.views.search_results.language') %>"><%= result.language %></dd>
     <% end %>
     <dt>
-      <%= Concept::Relation::Base.model_name.human(:count => 2) %>:
+      <%= Concept::Relation::Base.model_name.human(:count => 2) %>/<%= Concept::Base.model_name.human(:count => 2) %>:
     </dt>
     <dd class="broader_concept_preview" data-label-origin="<%= label.origin %>"></dd>
   </dl>
