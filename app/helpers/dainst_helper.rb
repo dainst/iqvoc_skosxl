@@ -14,7 +14,9 @@ module DainstHelper
 
 			broader_relations_string = parents.map { |c|
 				link_to_object c, c.pref_label
-			}.reverse.push(concept.pref_label).join(" ▸ ").html_safe
+			}.reverse.push(
+				link_to_object(concept, concept.pref_label)
+				).join(" ▸ ").html_safe
 		end
 		broader_relations_string
 	end
