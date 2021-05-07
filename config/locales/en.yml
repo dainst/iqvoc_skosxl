@@ -30,3 +30,4 @@ en:
         confirm_unpublish_loose_concept: "Unpublish parentless concept?"
     common:
       referenced_labels: "Some referenced labels are currently being edited."
+      path: "Path"

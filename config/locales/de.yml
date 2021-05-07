@@ -30,3 +30,4 @@ de:
         confirm_unpublish_loose_concept: "Veröffentlichung des elternlosen Konzeptes widerrufen?"
     common:
       referenced_labels: "Einige referenzierte Labels befinden sich momentan in Bearbeitung."
+      path: "Pfad"
