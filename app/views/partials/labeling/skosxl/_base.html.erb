@@ -30,15 +30,10 @@
         items = items.select { |item| can?(:read, item) }
       -%>
 
-      <% for c in items %>
-        <p>
-        <% if c.published? %>
-          <%= broader_path_menu c %>
-        <% else %>
-          <%= broader_path_menu c %> (unpublished!)
-        <% end %>
-        </p>
-      <% end %>
+      <ul class="small">
+        <%= raw broader_paths_menu_sorted items %>
+      </ul>
+
     </div>
   <% end %>
 <% end %>
