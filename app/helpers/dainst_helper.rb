@@ -24,7 +24,7 @@ module DainstHelper
 
 	def broader_paths_menu_sorted(concepts)
 		return "No concepts found" if concepts.count == 0
-		return "<li>#{ broader_path_menu(concept) }</li>" if concepts.count == 1
+		return "<li>#{ broader_path_menu(concepts[0]) }</li>" if concepts.count == 1
 
 		broader_concept_menus = {}
 		menu_html = ""
