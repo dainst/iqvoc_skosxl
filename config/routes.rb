@@ -27,5 +27,7 @@ Rails.application.routes.draw do
 
     get 'koha_search' => 'search_results#koha_search', as: 'koha_search'
     get 'zenon_search' => 'search_results#zenon_search', as: 'zenon_search'
+
+    get 'about_idai_thesauri' => 'about#about_idai_thesauri', as: 'about_idai_thesauri'
   end
 end

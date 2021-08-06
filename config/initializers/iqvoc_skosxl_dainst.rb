@@ -4,6 +4,8 @@ ConceptView.class_eval do
 	end
 end
 Rails.application.config.after_initialize do
+	
+
 	ConceptsController.class_eval do
 		def broader_path
 			@concept = Iqvoc::Concept.base_class.where(origin: params[:origin]).first

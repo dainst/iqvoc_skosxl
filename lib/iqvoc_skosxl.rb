@@ -28,5 +28,12 @@ module IqvocSKOSXL
     # TODO
     # Iqvoc.searchable_class_names = Iqvoc::Concept.labeling_class_names.keys +
     #    Iqvoc::Concept.note_class_names
+
+    Iqvoc.navigation_items.last[:items] << {
+      text: "Über iDAI.thesauri",
+      href: proc { about_idai_thesauri_path },
+      controller: 'about',
+      action: 'about_idai_thesauri'
+    }
   end
 end
