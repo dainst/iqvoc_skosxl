@@ -1,0 +1,130 @@
+
+<div class="row">
+	<div class="col-md-8 pt-3 col-md-offset-2">
+		<h1>FAQ – Projekt iDAI.thesauri</h1>
+		<hr>
+
+		<p>
+			<b>Welche kontrollierten Vokabulare bietet das Deutsche Archäologische Institut an?</b>
+		</p>
+			
+		Für die Vergabe von Schlagworten stehen drei Systeme zur Verfügung:
+		<ul>
+			<li>für Orte, Regionen und Länder den <a href="https://gazetteer.dainst.org/app/#!/home" target="_blank">iDAI.gazetteer</a></li>
+			<li>für chronologische Begriffe <a href="https://chronontology.dainst.org/" target="_blank">iDAI.chronontology</a></li>
+			<li>für Sachbegriffe den <a href="iDAI.welt" target="_blank">iDAI.welt-Thesaurus</a></li>
+		</ul>
+
+		<p>
+			<b>Was kann ich im iDAI.welt-Thesaurus finden? Was kann ich nicht finden?</b>
+		</p>
+		<p>
+			Der iDAI.welt-Thesaurus versammelt alle allgemeinen Konzepte aus den Vokabularen der DAI- Bibliotheken und der iDAI.world-Systeme. Der iDAI.welt-Thesaurus behandelt die gesamte Antike und hat keinen gattungsspezifischen, chronologischen oder geographischen Schwerpunkt, sondern spiegelt die facettenreiche Arbeit des DAI wieder.</p>
+		<p>
+			Im iDAI.welt-Thesaurus NICHT enthalten sind einzeln benannte spezifische Entitäten wie Namen von einzelnen Personen und Göttern.</p>
+
+
+		<p><b>Wie ist der iDAI.welt-Thesaurus strukturiert?</b></p>
+		<p>Der iDAI.welt-Thesaurus folgt der Struktur des <a href="https://vocabs.dariah.eu/backbone_thesaurus/en/" target="_blank">BackBone Thesaurus</a>. Dabei handelt es sich um einen Meta-Thesaurus für die Geisteswissenschaften, der im Rahmen von DARIAH entwickelt wurde. Der Einstieg erfolgt über wenige, allgemein gehaltene Facetten. Weitere Informationen finden sie <a href="https://www.backbonethesaurus.eu/" target="_blank">hier</a>.</p>
+
+		<p><b>Wieso werden auf der iDAI.thesauri-Seite mehrere Thesauri aufgelistet und welchen soll ich benutzen?</b></p>
+		<p>Die Plattform iDAI.thesauri versammelt alle historischen und aktuellen Begriffssammlungen des Deutschen Archäologischen Instituts. Für die Verschlagwortung, für die Konsultation von Definitionen und Beziehungen soll nur der <a href="https://www.backbonethesaurus.eu/" target="_blank">iDAI.welt-Thesaurus</a> benutzt werden.</p>
+
+		<p><b>Wie kann ich die Informationen zu einzelnen Begriffen exportieren oder verlinken?</b></p>
+		<p>Jedes Konzept kann als HTML, RDF/XML, RDF/Turtle und RDF/N-Triples exportiert werden. Die Optionen befinden sich in der rechten Spalte der Konzeptansicht.</p>
+		<p>Jedes Konzept besitzt eine URI, die als permanenter Identifikator benutzt werden kann. Um die URI zu kopieren, klicken Sie in der rechten Spalte auf „Konzept-URI“ mit der rechten Maustaste und wählen „Link-Adresse kopieren“.</p>
+
+		<img src="/FAQ-Bild1-neu.png" style="width: 100%; margin-bottom: 40px;" alt="">
+
+
+		<p><b>Wieso gibt es Konzepte und Labels?</b></p>
+
+		<p>Der iDAI.welt-Thesaurus ist eine SKOS-Instanz und nutzt die Grundsätze von <a href="https://www.w3.org/2009/08/skos-reference/skos.html" target="_blank">SKOS</a> (Simple Knowledge Organization System). Nach diesem System werden Begriffe als Konzepte bezeichnet, die einen oder auch mehrere Namen (Labels) haben können – etwa in unterschiedliche Sprachen. Die Konzepte haben eine hierarchische Anordnung und bleiben unverändert, auch wenn sich der Name ändert (z.B. Singular zu Plural) oder einen zusätzlichen Namen auf einer anderen Sprache hinzugefügt wird.</p>
+		<p>Wichtig ist, dass bei der Benutzung des iDAI.welt-Thesaurus <b>immer auf die Konzepte</b> verwiesen wird, nicht auf deren Namen (Labels).</p>
+
+		<img src="/FAQ-Bild2-neu.png" style="width: 100%; margin-bottom: 40px;" alt="">
+
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 pt-3 col-md-offset-2">
+		<h1>The Structure of Domain Terminologies in iQvoc</h1>
+		<hr>
+
+		<p>Domain terminologies are implemented based on the
+		<a href="http://www.w3.org/TR/skos-reference/">Simple Knowledge Organisation System</a>
+		(SKOS), a W3C recommendation.</p>
+
+		<p>SKOS distinguishes concepts from lexical labels. A <strong>concept</strong>
+		is "an idea or notion; a unit of thought", represented by a globally unique
+		identifier (an HTTP URI). A <strong>label</strong> is a term which is used to
+		refer to a concept, technically "a string of UNICODE characters, such as
+		'romantic love' or 'れんあい', in a given natural language, such as English or
+		Japanese". In most cases there are multiple labels denoting the same concept in
+		the same language.  One of them is the preferred label, while the others are
+		alternative labels. If you have heard about "symmetrical vs. non-symmetrical
+		multilingualism" (IFLA Guidelines for Multilingual Thesauri), the basic use case
+		described by SKOS is symmetrical (each concept has a preferred label in each
+		supported language), but the non-symmetrical approach (there is one concept per
+		language with only one preferred label in this language) can be expressed as
+		well.</p>
+
+		<p>There may also be a formal <strong>notation</strong> identifying a concept in
+		some classification system such as the Dewey Decimal Classification. While a
+		notation is a string of UNICODE characters just like a label, obviously a
+		notation has no specific language. It has been taken from a specific
+		classification system instead. There may be multiple notations from different
+		systems for a single concept, just like labels from different languages.</p>
+
+		<p>Usually concepts will have a lexical <strong>definition</strong>, but this is
+		not mandatory. There may also be several annotations, such as a general
+		<strong>note</strong>, a change note, editorial note, history note, scope note,
+		or an example.  Technically, a lexical definition is just one kind of a
+		note.</p>
+
+		<p>A more structural definition of a concept is given by its <strong>semantic
+		relations</strong> to other concepts. Basically, we have only two types of
+		relations in SKOS: hierarchical (<strong>broader<strong>,
+		</strong>narrower</strong>) and non-hierarchical (<strong>related</strong>)
+		relations. Both types are strictly disjoint: you will have to decide whether a
+		relation is hierarchical or not, there must not be both relation types between
+		the same two concepts. Some thesauri distinguish different types of hierarchy
+		(as defined by Z39-19-2005): generic (a cat is a mammal), instance (Mimi is a
+		cat), and whole-part (a cat has claws). SKOS does not follow this distinction,
+		"broader" is defined as "more general in meaning", narrower as "more specific".
+		Likewise there is no built-in assumption about transitivity of hierarchical
+		relations.  Both broader and narrower are not defined to be transitive, but the
+		technical vocabulary provides means "to draw inferences about the transitive
+		closure of the hierarchical relation".</p>
+
+		<p>The non-hierarchical relation is not further specified. This is due to the
+		design goal of a simple knowledge organisation system. Any not-so-simple
+		application may specialize different types of non-hierarchical relations, such
+		as is-caused-by, in-contradiction-to, has-impact-on, or anything else. Doing so
+		would exceed the limitations of a simple domain terminology and proceed to a
+		more complex ontology. This may be a valid approach, but it is out of scope
+		here.</p>
+
+		<p>Any set of semantically related concepts as described before can make a
+		<strong>concept scheme</strong>. Examples are "thesauri, classification schemes,
+		subject heading lists, taxonomies, 'folksonomies', and other types of controlled
+		vocabulary", such as different domain terminologies.</p>
+
+		<p>Concepts from different concept schemes may have semantic relations as well,
+		but these are called <strong>mapping relations</strong>. There are hierarchical
+		(<strong>narrowerMatch</strong>, <strong>broaderMatch</strong>) and related
+		(<strong>relatedMatch</strong>) mappings just like inside a single concept
+		scheme, but there may as well be some equivalence (<strong>exactMatch</strong>)
+		or similarity (<strong>closeMatch</strong>).</p>
+
+		<p>Finally SKOS defines a second pattern of describing sets of concepts: the
+		<strong>collection</strong>. There may be any kind of use case "where a group of
+		concepts shares something in common, and it is convenient to group them under a
+		common label", but you do not want them to make a concept scheme. In fact a
+		collection may even comprise concepts from different concept schemes, and
+		collections may be nested, mixing collections and concepts on each level just
+		like a file system.</p>
+	</div>
+</div>
