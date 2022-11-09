@@ -39,4 +39,4 @@ graph = accumulate_graph(f"{root_concept}.ttl", 0)
 
 print(f"writing final graph containing {concept_counter} concepts")
 
-graph.serialize(destination=f"thesauri.{format_suffix_mapping[args['format']]}", format=args['format'])
+graph.serialize(destination=f"thesauri.{format_suffix_mapping[args.format]}", format=args.format)
