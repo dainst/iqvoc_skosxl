@@ -386,7 +386,7 @@ DEPENDENCIES
   awesome_print
   capybara
   iqvoc (~> 4.12)!
-  mysql2 (~> 0.4.0)
+  mysql2 (~> 0.4.4)
   passenger
   pg
   poltergeist (~> 1.5.0)
@@ -395,4 +395,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

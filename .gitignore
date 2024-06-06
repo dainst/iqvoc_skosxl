@@ -17,3 +17,6 @@ public/*/iqvoc
 tmp
 
 .ruby-version
+
+passenger.80.pid
+passenger.80.pid.lock
