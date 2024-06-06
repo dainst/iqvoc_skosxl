@@ -18,5 +18,7 @@ tmp
 
 .ruby-version
 
+# Ignore passenger files, Passenger is used for deployment
 passenger.80.pid
 passenger.80.pid.lock
+Passengerfile.json
